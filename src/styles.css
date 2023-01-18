@@ -1,0 +1,127 @@
+body {
+  background-color: rgb(246, 242, 236);
+}
+
+.search-form {
+  background-color: rgb(3, 104, 150);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 65px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, 0.2);
+}
+
+.search-form input {
+  width: 20%;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  margin: 8px 0px;
+  padding: 8px 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 22px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url('./search.svg');*/
+  border: none;
+  margin: 8px 0px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+/* 
+.btn:hover .btn:focus {
+  background-color: #fff5ee;
+  transition: all 0.5s;
+} */
+
+.gallery,
+.info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery {
+  margin-left: -20px;
+  padding-top: 60px;
+  justify-content: center;
+}
+
+.gallery-link {
+  margin-top: 20px;
+  margin-left: 20px;
+  min-width: 320px;
+  flex-basis: calc((100% - 80px) / 4);
+  border: 1px solid rgb(197, 194, 194);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.gallery-link:hover,
+.gallery-link:focus {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, 0.2),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.photo-card-image {
+  display: block;
+  height: 30vh;
+  object-fit: cover;
+}
+
+.info {
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.info-item:not(:first-child) {
+  margin-left: 5px;
+}
+
+.load-more.is-hidden {
+  display: none;
+}
+
+.load-more {
+  display: block;
+  margin: 25px auto 0 auto;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(3, 104, 150);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, 0.2);
+  font: inherit;
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+}
