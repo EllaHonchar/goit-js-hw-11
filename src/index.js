@@ -1,7 +1,7 @@
 import { PixabayAPI } from "./pixabay-api";
 import { createCardsGallery } from "./cards"; 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import SimpleLightbox from "simplelightbox";
+//import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const searchInput = document.querySelector('#search-form');
@@ -67,9 +67,6 @@ function onLoadMoreBtnClick(event) {
         console.log(err)
     });
 };
-
-
-
 
 
 
