@@ -68,10 +68,12 @@ async function onLoadMoreBtnClick() {
         'beforeend',
         createCardsGallery(hits)
       );
-      if (hits < pixabayAPI.perPage * pixabayAPI.page) {
+      if (hits < pixabayAPI.perPage * pixabayAPI.page || hits < 40) {
       loadMoreButton.classList.add('is-hidden');
-      endOfContent.classList.remove('is-hidden')
-    }
+        infoMessage();
+    //   endOfContent.classList.remove('is-hidden');
+      
+    };
         }
    catch (error) {
         console.log(error);
@@ -80,4 +82,7 @@ async function onLoadMoreBtnClick() {
 
 function failMessage() {
     Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+}
+function infoMessage(){
+    Notify.info("We're sorry, but you've reached the end of search results.");
 }
