@@ -125,3 +125,6 @@ p {
   cursor: pointer;
   transition: all 0.5s;
 }
+.is-hidden {
+  display: none;
+}
