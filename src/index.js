@@ -29,7 +29,7 @@ async function onSearchFormButtonClick(event) {
     try {
         const { hits, totalHits} = await pixabayAPI.fetchPhotosByQuery();
 
-        pixabayAPI.page += 1;
+        // pixabayAPI.page += 1;
         event.target.reset();
 
         if( hits.length === 0) {
@@ -55,16 +55,16 @@ async function onSearchFormButtonClick(event) {
 loadMoreButton.addEventListener('click', onLoadMoreBtnClick);
 
 async function onLoadMoreBtnClick() {
-    // loadMoreButton.disabled = true;
+    loadMoreButton.disabled = true;
     pixabayAPI.page += 1;
   try {
-    const { data } = await pixabayAPI.fetchPhotosByQuery();
+    const { hits } = await pixabayAPI.fetchPhotosByQuery();
     
         gallery.insertAdjacentHTML(
         'beforeend',
-        createCardsGallery(data)
+        createCardsGallery(hits)
       );
-      if (data.totalHits < pixabayAPI.perPage*pixabayAPI.page) {
+      if (hits.totalHits < pixabayAPI.perPage*pixabayAPI.page) {
       loadMoreButton.classList.add('is-hidden');
       warningMessage();
     }
