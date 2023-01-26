@@ -8,12 +8,13 @@ const searchInput = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreButton = document.querySelector('.load-more');
 const searchBtn = document.querySelector('.btn');
-const endOfContent = document.querySelector('.js-load-end');
+// const endOfContent = document.querySelector('.js-load-end');
 
 const pixabayAPI  = new PixabayAPI();
 //console.log(pixabayAPI)
 
 searchInput.addEventListener('submit', onSearchFormButtonClick);
+
 
 async function onSearchFormButtonClick(event) {
     event.preventDefault();
@@ -24,13 +25,15 @@ async function onSearchFormButtonClick(event) {
    searchBtn.disabled = true;
 
     pixabayAPI.query = event.target.elements.searchQuery.value.trim();
+    pixabayAPI.event.target.reset();
     pixabayAPI.page = 1;
-
+  
     try {
         const { hits, totalHits} = await pixabayAPI.fetchPhotosByQuery();
 
-        pixabayAPI.page += 1;
+        // pixabayAPI.page += 1;
         event.target.reset();
+        loadMoreButton.classList.remove('is-hidden')
 
         if( hits.length === 0) {
             failMessage();
@@ -43,9 +46,9 @@ async function onSearchFormButtonClick(event) {
             gallery.innerHTML='';
             return;
         }
-        if( totalHits > pixabayAPI.perPage) {
-            loadMoreButton.classList.remove('is-hidden')
-        }
+        // if( totalHits > pixabayAPI.perPage) {
+        //     loadMoreButton.classList.remove('is-hidden')
+        // }
         gallery.innerHTML = createCardsGallery(hits);
     }
     catch (error) {
