@@ -24,10 +24,15 @@ async function onSearchFormButtonClick(event) {
     }
    searchBtn.disabled = true;
 
-    pixabayAPI.query = event.target.elements.searchQuery.value.trim();
-    pixabayAPI.event.target.reset();
+    // pixabayAPI.query = event.target.elements.searchQuery.value.trim();
     pixabayAPI.page = 1;
   
+    if(event.target.elements.searchQuery.value.trim().length === 0) {
+        event.target.reset();
+        searchBtn.disabled = false;
+        return;
+    }
+
     try {
         const { hits, totalHits} = await pixabayAPI.fetchPhotosByQuery();
 
@@ -42,6 +47,7 @@ async function onSearchFormButtonClick(event) {
             gallery.innerHTML = '';
             return;
         }
+
         if( pixabayAPI.query === '') {
             gallery.innerHTML='';
             return;
