@@ -24,7 +24,7 @@ async function onSearchFormButtonClick(event) {
     }
    searchBtn.disabled = true;
 
-    // pixabayAPI.query = event.target.elements.searchQuery.value.trim();
+    pixabayAPI.query = event.target.elements.searchQuery.value.trim();
     pixabayAPI.page = 1;
   
     if(event.target.elements.searchQuery.value.trim().length === 0) {
